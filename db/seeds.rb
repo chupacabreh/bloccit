@@ -18,10 +18,10 @@ posts = Post.all
 end
 
 puts "#{Post.count}"
-Post.find_or_create_by(title: "A unique title", body: "A unique body")
+post = Post.find_or_create_by(title: "A unique title", body: "A unique body")
 puts "#{Post.count}"
 
-Comment.find_or_create_by(post: Post.first, body: "A unique comment")
+Comment.find_or_create_by(post: post, body: "A unique comment")
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
