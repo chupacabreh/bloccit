@@ -68,6 +68,12 @@ RSpec.describe Post, type: :model do
         post.votes.create!(value: 1, user: user)
         expect(post.rank).to eq (old_rank + 1)
       end
+
+      describe "#down_votes" do
+        it "counts the number of votes with value = -1" do
+          expect( post.down_votes ).to eq(@down_votes)
+        end
+      end
     end
   end
 end
